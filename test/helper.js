@@ -2,6 +2,8 @@ import os from 'os';
 import path from 'path';
 import { spawn, execSync } from 'child_process';
 
+import Promise from 'bluebird';
+
 let app;
 
 before(done => {

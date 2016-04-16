@@ -3,7 +3,8 @@ import { Model } from '../../../../dist';
 class Author extends Model {
   static attributes = {
     name: {
-      type: 'text'
+      type: 'text',
+      defaultValue: 'New Author'
     }
   };
 }

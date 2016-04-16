@@ -3,11 +3,13 @@ import { Model } from '../../../../dist';
 class Post extends Model {
   static attributes = {
     title: {
-      type: 'text'
+      type: 'text',
+      defaultValue: 'New Post'
     },
 
     body: {
-      type: 'text'
+      type: 'text',
+      defaultValue: ''
     },
 
     isPublic: {
