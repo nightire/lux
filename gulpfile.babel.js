@@ -31,7 +31,7 @@ gulp.task('lint', () => {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('test', ['build'], () => {
+gulp.task('test', ['build:test'], () => {
   return gulp.src([
     'test/helper.js',
     'test/unit/**/*.js',
