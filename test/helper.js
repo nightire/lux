@@ -26,7 +26,7 @@ before(done => {
   app.stderr.on('data', err => console.error(err));
 
   app.stdout.once('data', async () => {
-    await new Promise(resolve => setTimeout(resolve, 10000));
+    await new Promise(resolve => setTimeout(resolve, 30000));
     done();
   });
 });
