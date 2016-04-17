@@ -12,7 +12,9 @@ describe('Unit: class Base', () => {
   it('has instance property `environment`', () => {
     const subject = Base.create();
 
-    expect(subject).to.have.property('environment').and.equal('development');
+    expect(subject)
+      .to.have.property('environment')
+      .and.equal(process.env.NODE_ENV || 'development');
   });
 
   describe('create()', () => {
