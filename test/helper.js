@@ -17,6 +17,14 @@ before(done => {
     }
   });
 
+  app.once('error', done);
+
+  app.stdout.setEncoding('utf8');
+  app.stderr.setEncoding('utf8');
+
+  app.stdout.on('data', data => console.log(data));
+  app.stderr.on('data', err => console.error(err));
+
   app.stdout.once('data', async () => {
     await new Promise(resolve => setTimeout(resolve, 10000));
     done();
