@@ -32,7 +32,7 @@ describe('Integration: class PostsController', () => {
         .and.equal(`${host}/posts`);
     });
 
-    describe('Feat pagination', () => {
+    describe('pagination', () => {
       let pagesWithLimit, pagesWithoutLimit;
 
       before(async () => {
@@ -83,7 +83,7 @@ describe('Integration: class PostsController', () => {
         }
       });
 
-      it('has [first, last, prev, next] links', () => {
+      it('has [self, first, last, prev, next] links', () => {
         let page;
 
         for (page of pagesWithLimit) {

@@ -13,6 +13,9 @@
   },
   "author": "Zachary Golba",
   "license": "MIT",
+  "engines": {
+    "node": ">= 4.0"
+  },
   "dependencies": {
     "ansi-regex": "2.0.0",
     "babel-runtime": "6.6.1",
