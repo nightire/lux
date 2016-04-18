@@ -40,7 +40,7 @@ gulp.task('test', ['build:test'], () => {
     .pipe(
       mocha({
         bail: true,
-        timeout: 120000,
+        timeout: 600000,
         require: [
           'babel-core/register'
         ]
