@@ -26,7 +26,7 @@ describe('Unit: class Base', () => {
       expect(subject).to.be.an.instanceof(Base);
     });
 
-    it('sets properties pass as an argument on the instance', () => {
+    it('sets properties passed as an argument on the instance', () => {
       expect(subject).to.have.property('test').and.equal(true);
     });
   });
@@ -36,7 +36,7 @@ describe('Unit: class Base', () => {
       test: false
     });
 
-    it('sets properties pass as an argument on the instance', () => {
+    it('sets properties passed as an argument on the instance', () => {
       subject.setProps({
         test: true
       });

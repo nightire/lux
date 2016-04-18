@@ -1,6 +1,6 @@
 import os from 'os';
 import path from 'path';
-import { spawn, execSync } from 'child_process';
+import { spawn } from 'child_process';
 
 import Promise from 'bluebird';
 
@@ -22,21 +22,22 @@ before(done => {
   app.stdout.setEncoding('utf8');
   app.stderr.setEncoding('utf8');
 
-  app.stdout.on('data', data => console.log(data));
-  app.stderr.on('data', err => console.error(err));
+  app.stdout.on('data', data => {
+    const isListening = /^.+listening\son\sport\s\d+\n$/g.test(data);
 
-  app.stdout.once('data', async () => {
-    await new Promise(resolve => setTimeout(resolve, 30000));
-    done();
+    if (isListening) {
+      done();
+    }
+  });
+
+  app.stderr.once('data', err => {
+    err = new Error(err);
+    done(err);
   });
 });
 
 after(() => {
   if (app) {
-    let i = 0;
-
-    for (let i = 0; i < os.cpus().length; i++) {
-      execSync(`kill -9 ${app.pid + i} || true`);
-    }
+    app.kill();
   }
 });
